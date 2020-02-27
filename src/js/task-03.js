@@ -7,12 +7,14 @@ console.warn('TASK-03');
 // Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате "имя":"кол-во задач".
 
 const findBestEmployee = function(employees) {
-  // твой код
+  const values = Object.values(employees);
+  const tasksOfBestEmployee = Math.max(...values);
+
+  return tasksOfBestEmployee;
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
+// Вызовы функции для проверки работоспособности реализации.
+
 console.log(
   findBestEmployee({
     ann: 29,

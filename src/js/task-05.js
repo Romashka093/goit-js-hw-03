@@ -16,9 +16,8 @@ const getAllPropValues = function(arr, prop) {
   // твой код
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
+// Вызовы функции для проверки работоспособности реализации.
+
 console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
 
 console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]

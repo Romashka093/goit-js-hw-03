@@ -6,8 +6,6 @@ console.warn('TASK-06');
 // которая получает массив объектов и имя продукта (значение свойства name).
 // Возвращает общую стоимость продукта (цена * количество).
 
-// Вызовы функции для проверки работоспособности твоей реализации.
-
 const products = [
   { name: 'Радар', price: 1300, quantity: 4 },
   { name: 'Сканер', price: 2700, quantity: 3 },
@@ -19,9 +17,8 @@ const calculateTotalPrice = function(allProdcuts, productName) {
   // твой код
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
+// Вызовы функции для проверки работоспособности реализации.
+
 console.log(calculateTotalPrice(products, 'Радар')); // 5200
 
 console.log(calculateTotalPrice(products, 'Дроид')); // 2800
