@@ -14,7 +14,14 @@ const products = [
 ];
 
 const calculateTotalPrice = function(allProdcuts, productName) {
-  // твой код
+  let productTotalPrice = 0;
+
+  for (let product of allProdcuts) {
+    if (productName === product.name) {
+      productTotalPrice = product.quantity * product.price;
+    }
+  }
+  return productTotalPrice;
 };
 
 // Вызовы функции для проверки работоспособности реализации.

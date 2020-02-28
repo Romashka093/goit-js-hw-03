@@ -12,9 +12,35 @@ const products = [
   { name: 'Захват', price: 1200, quantity: 2 },
 ];
 
-const getAllPropValues = function(arr, prop) {
-  // твой код
+// OPTION-02
+
+const getAllPropValues = function(array, prop) {
+  const values = [];
+
+  for (const product of array) {
+    if (prop in product) {
+      values.push(product[prop]);
+    }
+  }
+  return values;
 };
+
+// // OPTION - 01;
+
+// const getAllPropValues = function(array, prop) {
+//   const value = [];
+//   for (const arr of array) {
+//     const keys = Object.keys(arr);
+
+//     for (const key of keys) {
+//       if (prop === key) {
+//         const allPropValues = arr[key];
+//         value.push(allPropValues);
+//       }
+//     }
+//   }
+//   return value;
+// };
 
 // Вызовы функции для проверки работоспособности реализации.
 

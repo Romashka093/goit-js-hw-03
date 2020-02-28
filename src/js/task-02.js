@@ -6,8 +6,8 @@ console.warn('TASK-02');
 // Функция возвращает число - количество свойств.
 
 const countProps = function(obj) {
-  const count = Object.keys(obj).length;
-  return count;
+  const countOfProps = Object.keys(obj).length;
+  return { countOfProps };
 };
 
 // Вызовы функции для проверки работоспособности реализации.

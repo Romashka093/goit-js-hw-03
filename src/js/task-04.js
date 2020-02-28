@@ -7,7 +7,13 @@ console.warn('TASK-04');
 // передаваемого в функцию, имеет вид "имя":"зарплата".
 
 const countTotalSalary = function(employees) {
-  // твой код
+  const salaries = Object.values(employees);
+  let totalSalary = 0;
+
+  for (const salary of salaries) {
+    totalSalary += salary;
+  }
+  return { totalSalary };
 };
 
 // Вызовы функции для проверки работоспособности реализации.
