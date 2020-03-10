@@ -5,7 +5,7 @@ console.warn('TASK-02');
 // Напиши функцию countProps(obj), считающую кол-во свойств в объекте.
 // Функция возвращает число - количество свойств.
 
-const countProps = function(obj) {
+const countProps = obj => {
   const countOfProps = Object.keys(obj).length;
   return { countOfProps };
 };

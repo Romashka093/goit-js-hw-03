@@ -6,57 +6,37 @@ console.warn('TASK-03');
 // самого продуктивного (который выполнил больше всех задач).
 // Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате "имя":"кол-во задач".
 
-// option-01
+// option-02;
 
-const findBestEmployee = function(employees) {
-  let tasksOfBestEmployee = 0;
-  let nameOfBestEmployee;
-  const keys = Object.keys(employees);
+const findBestEmployee = employees => {
+  let maxTasks = 0;
+  let bestEmployee;
 
-  for (const key of keys) {
-    if (tasksOfBestEmployee < employees[key]) {
-      tasksOfBestEmployee = employees[key];
-      nameOfBestEmployee = key;
+  const tasks = Object.entries(employees);
+
+  for (const [name, value] of tasks) {
+    if (maxTasks < value) {
+      maxTasks = value;
+      bestEmployee = name;
     }
   }
-  return { nameOfBestEmployee };
+  return bestEmployee;
 };
 
-// // option-02
+// // option - 01;
 
-// const findBestEmployee = function(employees) {
-//   const values = Object.values(employees);
-//   console.log(values);
+// const findBestEmployee = employees => {
+//   let tasksOfBestEmployee = 0;
+//   let nameOfBestEmployee;
 //   const keys = Object.keys(employees);
-//   console.log(keys);
-//   const tasksOfBestEmployee = Math.max(...values);
 
-//   return tasksOfBestEmployee;
-// };
-
-// // LAST OPTION - let's whatch video with Repeta
-
-// const findBestEmployee = function(employees) {
-//   let maxTasks = 0;
-//   let bestEmployee;
-
-//   const values = Object.entries(employees);
-//   console.log(values);
-
-//   const tasksOfBestEmployee = Math.max(...values);
-//   console.log(tasksOfBestEmployee);
-
-//   for (const key in employees) {
-//     if (employees.hasOwnProperty(key)) {
-//       const element = employees[key];
-//       // console.log(element);
-//       if (maxTasks < element) {
-//         bestEmployee = element;
-//       }
+//   for (const key of keys) {
+//     if (tasksOfBestEmployee < employees[key]) {
+//       tasksOfBestEmployee = employees[key];
+//       nameOfBestEmployee = key;
 //     }
-//     return bestEmployee;
 //   }
-
+//   return { nameOfBestEmployee };
 // };
 
 // Вызовы функции для проверки работоспособности реализации.

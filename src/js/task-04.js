@@ -6,7 +6,7 @@ console.warn('TASK-04');
 // Функция считает общую сумму запрплаты работников и возращает ее. Каждое поле объекта,
 // передаваемого в функцию, имеет вид "имя":"зарплата".
 
-const countTotalSalary = function(employees) {
+const countTotalSalary = employees => {
   const salaries = Object.values(employees);
   let totalSalary = 0;
 

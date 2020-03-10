@@ -14,7 +14,7 @@ const products = [
 
 // OPTION-02
 
-const getAllPropValues = function(array, prop) {
+const getAllPropValues = (array, prop) => {
   const values = [];
 
   for (const product of array) {
