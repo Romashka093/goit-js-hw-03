@@ -45,7 +45,7 @@ const account = {
    * после чего добавляет его в историю транзакций
    */
   deposit(amount) {
-    this.balance = this.balance + amount;
+    this.balance += amount;
 
     const newDepositTransaction = this.createTransaction(
       amount,
@@ -64,19 +64,25 @@ const account = {
    * о том, что снятие такой суммы не возможно, недостаточно средств.
    */
   withdraw(amount) {
-    this.balance = this.balance - amount;
-
-    const newWithdrawTransaction = this.createTransaction(
-      amount,
-      Transaction.WITHDRAW,
-    );
-    this.transactions = [...this.transactions, newWithdrawTransaction];
+    if (amount > this.balance) {
+      console.log(
+        `You try to withdraw ${amount} but for this transaction not enough money in your account!`,
+      );
+    } else {
+      this.balance -= amount;
+      const newWithdrawTransaction = this.createTransaction(
+        amount,
+        Transaction.WITHDRAW,
+      );
+      this.transactions = [...this.transactions, newWithdrawTransaction];
+    }
   },
 
   /*
    * Метод возвращает текущий баланс
    */
   getBalance() {
+    console.log('Balance: ', this.balance);
     return this.balance;
   },
 
@@ -86,6 +92,7 @@ const account = {
   getTransactionDetails(id) {
     for (const transaction of this.transactions) {
       if (transaction.id === id) {
+        console.log(`You found transaction by id '${id}': `, transaction);
         return transaction;
       }
     }
@@ -103,15 +110,24 @@ const account = {
         total = total + transaction.amount;
       }
     }
-    return `The amount of "${type}" transactions is: ${total}`;
+    return console.log(`The amount of "${type}" transactions is: ${total}`);
   },
 };
 
-account.deposit(155);
-account.deposit(100);
-account.withdraw(50);
+account.deposit(150);
+account.getBalance();
 console.table(account.transactions);
-console.log('Balance: ', account.getBalance());
+account.deposit(100);
+account.getBalance();
+console.table(account.transactions);
+account.withdraw(50);
+account.getBalance();
+console.table(account.transactions);
+account.withdraw(350);
+account.getBalance();
+console.table(account.transactions);
 
-console.log(account.getTransactionDetails('id-2'));
-console.log(account.getTransactionTotal('deposit'));
+account.getTransactionDetails('id-2');
+
+account.getTransactionTotal('deposit');
+account.getTransactionTotal('withdraw');
